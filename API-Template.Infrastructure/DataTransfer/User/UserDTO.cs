@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API_Template.Infrastructure.DataTransfer.User
 {
-    public class UserDTO : BaseDTO<Core.DataModels.User>
+    public class UserDTO : BaseDTO
     {
         public string Email { get; set; }
     }
