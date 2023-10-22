@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace API_Template.Infrastructure.DataTransfer.User
 {
-    public class UserMappingProfile : BaseMappingProfile<UserDTO, IUser>
+    public class UserMappingProfile : BaseMappingProfile<UserDTO, UserInfo>
     {
         public UserMappingProfile(): base()
         {

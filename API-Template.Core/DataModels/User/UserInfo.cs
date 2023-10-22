@@ -7,19 +7,15 @@ using System.Threading.Tasks;
 
 namespace API_Template.Core.DataModels.User
 {
-    public interface IUser: IBaseModel
+    public class UserInfo : BaseModel
     {
-        public string FirstName { get; set; }
+        public string Email { get; set; }
 
+        public string FirstName { get; set; }
+        
         public string Surname { get; set; }
 
-        public string Email { get; set; }
-        
         public DateTime LastLoggedIn { get; set; }
-        
-
-        public string FullName => FirstName + " " + Surname;
-
 
     }
 }

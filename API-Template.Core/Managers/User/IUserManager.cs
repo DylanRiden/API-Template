@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace API_Template.Core.Managers.User
 {
-    public interface IUserManager: IManager<IUser>
+    public interface IUserManager: IManager<UserInfo>
     {
-        
+        public Task OnLoginAsync(UserInfo user);
     }
 }

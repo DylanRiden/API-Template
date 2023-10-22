@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 namespace API_Template.Core.Managers.Base
 {
     internal abstract class BaseManager<TEntity> : IManager<TEntity> 
-        where TEntity : class, IBaseModel 
+        where TEntity: BaseModel
     {
         protected readonly AppDataContext dataContext;
+        protected readonly DbSet<TEntity> dataSet;
 
         public BaseManager(AppDataContext dataContext)
         {
             this.dataContext = dataContext;
+            this.dataSet = GetDbSet();
         }
 
         protected abstract DbSet<TEntity> GetDbSet();

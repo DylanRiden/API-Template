@@ -2,7 +2,7 @@
 
 namespace API_Template.Core.Managers.Base
 {
-    public interface IManager<TEntity> where TEntity : IBaseModel
+    public interface IManager<TEntity> where TEntity : BaseModel
     {
         Task AddAsync(TEntity entity);
         Task AddRangeAsync(IQueryable<TEntity> entities);

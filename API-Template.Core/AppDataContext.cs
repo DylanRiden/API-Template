@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using API_Template.Core.DataModels.User;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace API_Template.Core
 {
     public class AppDataContext: DbContext
     {
-        
+        public DbSet<UserInfo> Users { get; set; }
+
+        public AppDataContext()
+        {
+            
+        }
     }
 }

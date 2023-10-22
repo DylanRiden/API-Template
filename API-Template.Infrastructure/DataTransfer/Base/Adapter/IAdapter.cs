@@ -10,7 +10,7 @@ namespace API_Template.Infrastructure.DataTransfer.Base.Adapter
 {
     public interface IAdapter<TEntity, TDTO>
         where TDTO: BaseDTO
-        where TEntity: IBaseModel
+        where TEntity: BaseModel
     {
         public TDTO ToDTO(TEntity entity);
 

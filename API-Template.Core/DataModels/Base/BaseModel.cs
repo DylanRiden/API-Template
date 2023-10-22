@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace API_Template.Core.DataModels.Base
 {
-    internal abstract class BaseModel : IBaseModel
+    public abstract class BaseModel
     {
         public Guid Id { get; set; }
         public bool IsActive { get; set; }

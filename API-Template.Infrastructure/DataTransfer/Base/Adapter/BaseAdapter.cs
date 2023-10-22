@@ -14,7 +14,7 @@ namespace API_Template.Infrastructure.DataTransfer.Base.Adapter
     public abstract class BaseAdapter<TEntity, TDTO, TManager>: IAdapter<TEntity, TDTO>
         where TManager : class, IManager<TEntity>
         where TDTO : BaseDTO
-        where TEntity: IBaseModel
+        where TEntity: BaseModel
     {
         protected readonly TManager dataManager;
         protected readonly IMapper mapper;
