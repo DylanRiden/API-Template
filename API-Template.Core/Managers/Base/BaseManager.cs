@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace API_Template.Core.Managers.Base
 {
-    public abstract class BaseManager<TEntity>
-        where TEntity : BaseDbModel
+    internal abstract class BaseManager<TEntity> : IManager<TEntity> 
+        where TEntity : class, IBaseModel 
     {
         protected readonly AppDataContext dataContext;
 
@@ -19,7 +19,7 @@ namespace API_Template.Core.Managers.Base
         }
 
         protected abstract DbSet<TEntity> GetDbSet();
-        
+
         public virtual async Task<TEntity?> GetAsync(Guid id)
         {
             return await this.GetDbSet().FirstOrDefaultAsync(e => e.Id == id);
@@ -53,11 +53,11 @@ namespace API_Template.Core.Managers.Base
             this.GetDbSet().UpdateRange(entities);
             await this.dataContext.SaveChangesAsync();
         }
-        
+
         public virtual async Task DeleteAsync(Guid id)
         {
             TEntity? entity = await this.GetAsync(id);
-            if(entity is null)
+            if (entity is null)
             {
                 throw new Exception("Entity does not exist");
             }

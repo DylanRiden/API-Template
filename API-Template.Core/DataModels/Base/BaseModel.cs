@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace API_Template.Core.DataModels.Base
 {
-    public class BaseDbModel
+    internal abstract class BaseModel : IBaseModel
     {
         public Guid Id { get; set; }
-
         public bool IsActive { get; set; }
-
         public DateTime DateCreated { get; set; }
-
         public DateTime DateModified { get; set; }
     }
 }
