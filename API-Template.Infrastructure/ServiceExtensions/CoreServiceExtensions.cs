@@ -1,5 +1,6 @@
 ﻿using API_Template.Core;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace API_Template.Infrastructure.ServiceExtensions
 {
     public static class CoreServiceExtensions
     {
-        public static IServiceCollection AddCoreServices(this IServiceCollection services)
+        public static IServiceCollection AddCoreServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<AppDataContext>(opt => opt.UseSqlite("Data Source=Z:\\Dev\\Practice\\DBs\\template.db"));
+            services.AddDbContext<AppDataContext>(opt => opt.UseSqlite(configuration.GetConnectionString("Database")));
             services.AddManagers();
             services.AddValidators();
             return services;
