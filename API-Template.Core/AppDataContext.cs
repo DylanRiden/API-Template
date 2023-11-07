@@ -12,7 +12,7 @@ namespace API_Template.Core
     {
         public DbSet<UserInfo> Users { get; set; }
 
-        public AppDataContext()
+        public AppDataContext(DbContextOptions options): base(options)
         {
             
         }

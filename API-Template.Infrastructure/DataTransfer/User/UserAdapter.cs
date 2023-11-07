@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace API_Template.Infrastructure.DataTransfer.User
 {
-    public class UserAdapter: BaseAdapter<UserInfo, UserDTO, IUserManager>
+    public class UserAdapter: BaseAdapter<UserInfo, UserDTO, ModifyUserDTO, IUserManager>
     {
         public UserAdapter(IUserManager dataManager, IMapper mapper) : base(dataManager, mapper)
         {

@@ -8,16 +8,27 @@ using System.Threading.Tasks;
 
 namespace API_Template.Infrastructure.DataTransfer.Base.Adapter
 {
-    public interface IAdapter<TEntity, TDTO>
-        where TDTO: BaseDTO
+    public interface IAdapter<TEntity, TReadDTO, TModifyDTO>
+        where TReadDTO: BaseDTO
         where TEntity: BaseModel
+        where TModifyDTO: class
     {
-        public TDTO ToDTO(TEntity entity);
+        public TReadDTO ToDTO(TEntity entity);
 
-        public ListDTO<TDTO> ToQueryableDTO(IQueryable<TEntity> queryable);
+        public TEntity FromDTO(TModifyDTO dto);
 
-        public Task<TDTO> GetAsync(Guid id);
+        public ListDTO<TReadDTO> ToQueryableDTO(IQueryable<TEntity> queryable);
 
-        public ListDTO<TDTO> GetList();
+        public Task<TReadDTO> GetAsync(Guid id);
+
+        public ListDTO<TReadDTO> GetList();
+
+        public Task Create(TModifyDTO modifyDTO);
+
+        public Task Replace(Guid Id, TModifyDTO modifyDTO);
+
+        public Task Update(Guid Id, TModifyDTO modifyDTO);
+
+        public Task Delete(Guid id);
     }
 }
